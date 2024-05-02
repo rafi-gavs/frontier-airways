@@ -10,4 +10,9 @@ class AppString {
   static const usePromoCode = 'Use promo code';
   static const save = 'SAVE75';
   static const bookAFlight = 'Book a Flight';
+  static const fightDetails = 'Fight Details';
+  static const depart = 'Depart';
+  static const arrive = ' Arrive';
+  static const checkIn = 'Check-in';
+  static const manage = 'Manage';
 }
