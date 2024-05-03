@@ -15,4 +15,5 @@ class AppString {
   static const arrive = ' Arrive';
   static const checkIn = 'Check-in';
   static const manage = 'Manage';
+  static const viewBordingPass = 'View Boarding Pass';
 }

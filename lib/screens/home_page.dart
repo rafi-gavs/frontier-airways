@@ -114,7 +114,7 @@ class _TravelBookedState extends State<TravelBooked> {
               ),
               const SaveBigWidget(),
               const GoWildWidget(),
-              FlightDetailWidget(isCheckedIn: true,)
+              FlightDetailWidget(isCheckedIn: false,)
             ],
           ),
         ),

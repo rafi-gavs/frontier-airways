@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -73,6 +74,7 @@ class FlightDetailWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment:isCheckedIn?CrossAxisAlignment.start:CrossAxisAlignment.center,
               children: [
              
 
@@ -103,7 +105,7 @@ class FlightDetailWidget extends StatelessWidget {
                 ),
             isCheckedIn?
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                      Text('F9 1176',textAlign: TextAlign.center, style: GoogleFonts.poppins(
                       fontSize: 14.0,
@@ -111,10 +113,11 @@ class FlightDetailWidget extends StatelessWidget {
                                 color: AppColor.stringBlackColor,
                   
                     ),),
+                    SizedBox(height: 10,),
 
                     SizedBox(
-                      height: 5,
-                      width: 5,
+                      height: 45,
+                      width: 45,
                       child: Image.asset( 'assets/appimage/airplane.png',fit: BoxFit.contain,)),  
                     // Text('LAS',textAlign: TextAlign.center, style: GoogleFonts.poppins(
                     //   fontSize: 12.0,
@@ -164,6 +167,96 @@ class FlightDetailWidget extends StatelessWidget {
               ],
             ),
           ),
+         if(isCheckedIn)Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+            width: 92,
+            height: 1,
+            color: Colors.green,
+
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:8.0,vertical: 5),
+              child: Text('On Time',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.stringBlackColor,
+              
+              ),),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.green.shade100,
+              borderRadius: BorderRadius.circular(10)
+            ),
+          ),
+          Container(
+            width: 92,
+            height: 1,
+            color: Colors.green,
+
+          ),
+          ],),
+
+         if(isCheckedIn)Padding(
+            padding: const EdgeInsets.symmetric(horizontal:  23.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                     Text('Gate',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.stringBlackColor,
+                    
+                      ),),
+                        Text("J 6",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColor.stringBlackColor,
+                    
+                  ),),
+                   Text('Terminal A',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.stringBlackColor,
+                    
+                      ),),
+            
+                  ],
+                ),
+                 Column(
+                  
+                  children: [
+                     Text('Boarding Starts',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.stringBlackColor,
+                    
+                      ),),
+                        Text("9:40 AM",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColor.stringBlackColor,
+                    
+                  ),),
+                   Text('Boarding Zone: 1',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                        fontSize: 12.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.stringBlackColor,
+                    
+                      ),),
+            
+                  ],
+                )
+              ],
+            ),
+          ),
+
             Padding(
                   padding:
                       const EdgeInsets.only(left: 18.0, right: 18.0, top: 20),
@@ -191,7 +284,7 @@ class FlightDetailWidget extends StatelessWidget {
                     width: double.infinity,
                     child: Center(
                       child: Text(
-                        AppString.checkIn,
+                    isCheckedIn? AppString.viewBordingPass:AppString.checkIn,
                         style: GoogleFonts.poppins(
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600,
