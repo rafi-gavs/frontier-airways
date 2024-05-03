@@ -4,7 +4,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/util/appcolor.dart';
-import 'package:travel/util/appimage.dart';
 import 'package:travel/util/appstring.dart';
 
 class FlightDetailWidget extends StatelessWidget {
@@ -20,7 +19,8 @@ class FlightDetailWidget extends StatelessWidget {
       
       decoration: BoxDecoration(
         
-        borderRadius: BorderRadius.circular(8)
+        borderRadius: BorderRadius.circular(8),
+          border: Border.all(color:Color(0xffDFDAC9)),
 
       ),
       
@@ -94,8 +94,9 @@ class FlightDetailWidget extends StatelessWidget {
                                 color: AppColor.stringBlackColor,
                   
                 ),),
-                 Text('Ft Lauderdale \n FFL',textAlign: TextAlign.center, style: GoogleFonts.poppins(
-                      fontSize: 12.0,
+                SizedBox(height: 5,),
+                 Text(isCheckedIn?'Ft Lauderdale': 'Ft Lauderdale \n FFL',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                      fontSize:isCheckedIn?16: 12.0,
                                 fontWeight: FontWeight.w400,
                                 color: AppColor.stringBlackColor,
                   
@@ -152,9 +153,9 @@ class FlightDetailWidget extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                                 color: AppColor.stringBlackColor,
                   
-                ),),
-                 Text('San Francisco \n SFO',textAlign: TextAlign.center, style: GoogleFonts.poppins(
-                      fontSize: 12.0,
+                ),),SizedBox(height: 5,),
+                Text(isCheckedIn? 'San Francisco':'San Francisco \n SFO',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                      fontSize:isCheckedIn?16:12.0,
                                 fontWeight: FontWeight.w400,
                                 color: AppColor.stringBlackColor,
                   
@@ -167,37 +168,40 @@ class FlightDetailWidget extends StatelessWidget {
               ],
             ),
           ),
-         if(isCheckedIn)Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-            width: 92,
-            height: 1,
-            color: Colors.green,
-
-          ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal:8.0,vertical: 5),
-              child: Text('On Time',textAlign: TextAlign.center, style: GoogleFonts.poppins(
-                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColor.stringBlackColor,
-              
-              ),),
+         if(isCheckedIn)Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+              width: 92,
+              height: 1,
+              color: Colors.green,
+           
             ),
-            decoration: BoxDecoration(
-              color: Colors.green.shade100,
-              borderRadius: BorderRadius.circular(10)
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal:8.0,vertical: 5),
+                child: Text('On Time',textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.stringBlackColor,
+                
+                ),),
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xffF4FAEE),
+                borderRadius: BorderRadius.circular(8)
+              ),
             ),
-          ),
-          Container(
-            width: 92,
-            height: 1,
-            color: Colors.green,
-
-          ),
-          ],),
+            Container(
+              width: 92,
+              height: 1,
+              color: Colors.green,
+           
+            ),
+            ],),
+         ),
 
          if(isCheckedIn)Padding(
             padding: const EdgeInsets.symmetric(horizontal:  23.0),
@@ -212,7 +216,7 @@ class FlightDetailWidget extends StatelessWidget {
                                   color: AppColor.stringBlackColor,
                     
                       ),),
-                        Text("J 6",
+                        Text("J6",
                   style: GoogleFonts.montserrat(
                     fontSize: 24.0,
                                   fontWeight: FontWeight.w700,

@@ -11,6 +11,8 @@ class AppColor {
   static const stringBlue = Color(0xFF004863);
   static const greenColor = Color(0xFF005A45);
   static const brownColor = Color(0xFFAA6527);
+    static const borderColor = Color(0xFFDFDAC9);
+
    
 
   

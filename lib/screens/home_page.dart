@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel/screens/checking_info_card.dart';
+import 'package:travel/screens/custom_appbar.dart';
+import 'package:travel/screens/destination_detail_card.dart';
 import 'package:travel/screens/flight_details_widget.dart';
 import 'package:travel/screens/gowild_widget.dart';
 import 'package:travel/screens/offercard_widget.dart';
@@ -23,10 +26,8 @@ class _TravelBookedState extends State<TravelBooked> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(20),
-        child: AppBar(
-          backgroundColor: AppColor.primary,
-        ),
+        preferredSize: const Size.fromHeight(80),
+        child: TestingDecorations(clipper: SeaWaveClipper(), color: AppColor.primary)
       ),
       body: GestureDetector(
         onTap: () {},
@@ -45,16 +46,13 @@ class _TravelBookedState extends State<TravelBooked> {
                           fit: BoxFit.fill),
                     ),
                     child: const WelcomeCard(),
-                 
                   ),
                   const OfferCardWidget()
-                
                 ],
               ),
               Padding(
                   padding:
                       const EdgeInsets.only(left: 16.0, right: 16.0, top: 30),
-              
                   child: Container(
                     decoration: const BoxDecoration(
                       color: AppColor.primary,
@@ -108,13 +106,33 @@ class _TravelBookedState extends State<TravelBooked> {
                   height: 342,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-
                           image: AssetImage('assets/appimage/bau_offer.png'))),
                 ),
               ),
               const SaveBigWidget(),
               const GoWildWidget(),
-              FlightDetailWidget(isCheckedIn: false,)
+              FlightDetailWidget(
+                isCheckedIn: true,
+              ),
+              const WelcomeCard(),
+              const CheckingInfoCard(
+                headingText:
+                    "You are Bringing a Personal Item \nand/or a Carry-On",
+                cardImage: 'assets/appimage/trollybagblue.png',
+                infoTextFirst: CheckingInfoText(
+                    infoText:
+                        'Proceed to security and \nstraight to your gate'),
+                infoTextSecond: CheckingInfoText(
+                    infoText:
+                        "Personal items and carry- \nons are subject to size check\nat the gate"),
+              ),
+              const CheckingInfoCard(addOnText: true,
+                  headingText: 'You are Checking Bags!',
+                  cardImage: 'assets/appimage/trollybagbrown.png',
+                  infoTextFirst: CheckingInfoText(
+                      infoText:
+                          'Checked bags must be \ndropped off 60 minutes \nbefore your flights scheduled \ndeparture')),
+                          const DestinationDetailCard()
             ],
           ),
         ),
@@ -123,4 +141,3 @@ class _TravelBookedState extends State<TravelBooked> {
     );
   }
 }
-
